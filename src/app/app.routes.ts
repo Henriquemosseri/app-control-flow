@@ -5,12 +5,14 @@ import { ControlFlowComponent } from './components/control-flow/control-flow.com
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { TesteComponent } from './components/teste/teste.component';
 import { ProdutoDetalheComponent } from './components/produto-detalhe/produto-detalhe.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
 export const routes: Routes = [
 {path: '', component: HomeComponent},
 {path: 'cliente', component: ClienteComponent},
 {path: 'control-flow', component:ControlFlowComponent},
 {path:'teste', component: TesteComponent},
 {path: 'produto/:id', component: ProdutoDetalheComponent},
+{path:'categoria', component: CategoriaComponent},
 {path: '**', component:NotfoundComponent},
 
 ];

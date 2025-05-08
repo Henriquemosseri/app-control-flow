@@ -25,7 +25,7 @@ export class ClienteComponent {
   }
 
   list(): void {
-    this.clientes = this.clienteService.list()
+    this.clienteService.list().subscribe((resposta)=> (this.clientes=resposta))
   }
   //metodo executado ao inicializar a página
   ngOnInit(): void {
@@ -60,7 +60,7 @@ export class ClienteComponent {
           telefone: formData.telefone,
         }
         // console.log(clienteAdd)
-        this.clienteService.add(clienteAdd) //chamando a service para inserir
+        this.clienteService.add(clienteAdd).subscribe() //chamando a service para inserir
         alert('Inserido com sucesso') // Enviando feedback ao usuário
       }
     }
@@ -68,19 +68,19 @@ export class ClienteComponent {
       alert('Favor preencher os campos obrigatórios')
     }
     this.clienteForm.reset() //limpa o form após o preenchimento
-
+    this.list();
   }
   editar(id: string): void {
     //Buscando todos clientes e filtrando pelo id enviado como parametro
-    const cliente = this.clienteService.list().find(c => c.id == id)
-    if (cliente) {
-      this.clienteIdEdicao = cliente.id
-      //atribuir os valores ao formulário
-      this.clienteForm.patchValue({
-        nome: cliente.nome,
-        telefone: cliente.telefone
-      })
-    }
+    // const cliente = this.clienteService.list().find(c => c.id == id)
+    // if (cliente) {
+    //   this.clienteIdEdicao = cliente.id
+    //   //atribuir os valores ao formulário
+    //   this.clienteForm.patchValue({
+    //     nome: cliente.nome,
+    //     telefone: cliente.telefone
+    //   })
+    // }
     // console.log(cliente)
 
 

@@ -1,0 +1,20 @@
+<hr>
+<h2>Lista de categorias </h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>nome</th>
+      <th>descrição</th>
+      <th>Ativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (categoria of categorias; track $index) {
+    <tr>
+      <td>{{categoria.nome}}</td>
+      <td>{{categoria.descricao}}</td>
+      <td>{{categoria.ativa}}</td>
+    </tr>
+    }
+  </tbody>
+</table>
